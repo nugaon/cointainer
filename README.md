@@ -14,3 +14,6 @@ The Cointainer is a git repository for blockchain based local node Docker images
 │   │   └── run_on_mainnet.sh - build (or pull) the image by Dockerfile, then starts within a container on mainnet.
 ```
 
+## Docker images
+
+The images must to be Linux kernel based.
