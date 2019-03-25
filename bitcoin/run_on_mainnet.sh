@@ -29,4 +29,4 @@ then
 					docker build -t nemesgyadam/bitcoin-core --build-arg BITCOIN_VERSION=${VERSION} .
 				fi
 	fi
-docker run -v /home/ubuntu/bitcoin:/home/ubuntu/bitcoin -d --rm -p 8332:8332 --name bitcoin-node nemesgyadam/bitcoin-core  -rpcallowip=172.17.0.0/16 -rpcauth='nemes:762008f3357fb7ed19864d632f62701e$19685dea44164627fd3277feeac445e2ef52002b816441ad531b92db9fd5232e'
+docker run -v /home/ubuntu/bitcoin:/home/ubuntu/bitcoin -d --rm -p 8332:8332 --name bitcoin-node nemesgyadam/bitcoin-core  -rpcallowip=172.17.0.0/16 -rpcauth='foo:7d9ba5ae63c3d4dc30583ff4fe65a67e$9e3634e81c11659e3de036d0bf88f89cd169c1039e6e09607562d54765c649cc'
