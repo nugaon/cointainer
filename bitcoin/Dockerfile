@@ -5,7 +5,7 @@ RUN apt-get update -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENV BITCOIN_VERSION=0.17.1
+ARG BITCOIN_VERSION=0.17.1
 ENV BITCOIN_DATA=/home/ubuntu/bitcoin
 ENV PATH=/opt/bitcoin-${BITCOIN_VERSION}/bin:$PATH
 
