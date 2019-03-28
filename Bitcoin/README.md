@@ -20,14 +20,16 @@ example:
 
 Test RPC port: 18332
 
-RPC Username: nemes
+RPC Username: cointaner
 
-RPC Password: A0bluBX7fNIrr5utBEbFGe-mOuuNtsKCkYsOIZjCFnI=
+RPC Password: bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM=
 
+To withdraw some test coins to your account, you can use the following site:
+https://coinfaucet.eu/en/btc-testnet/
 
 
 <h3>Example RPC usage</h3>
->curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://nemes:A0bluBX7fNIrr5utBEbFGe-mOuuNtsKCkYsOIZjCFnI=@127.0.0.1:18332
+>curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://cointaner:bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM=@127.0.0.1:18332
 
 
 <h2>Live bitcoin blockchain:</h2>

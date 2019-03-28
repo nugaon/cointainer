@@ -5,7 +5,7 @@ RUN apt-get update -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENV LITECOIN_VERSION=0.16.3
+ARG LITECOIN_VERSION=0.16.3
 ENV LITECOIN_DATA=/home/ubuntu/.litecoin
 ENV PATH=/opt/litecoin-${LITECOIN_VERSION}/bin:$PATH
 
