@@ -61,4 +61,5 @@ example:
 RPC port: 8332
 
 
-Note: Testnet and mainnet use the same docker image.
+Note:   Testnet and mainnet use the same docker image.
+        chmod +x run_on_mainnet.sh if necessery
