@@ -1,13 +1,16 @@
 FROM debian:stable-slim
 
+# docker build --build-arg BITCOIN_VERSION=0.17.0
 RUN apt-get update -y \
   && apt-get install -y curl gnupg gosu \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ARG BITCOIN_VERSION=0.17.1
-ENV BITCOIN_DATA=/home/ubuntu/bitcoin
+ENV BITCOIN_DATA=/root/.bitcoin
 ENV PATH=/opt/bitcoin-${BITCOIN_VERSION}/bin:$PATH
+
+
 
 RUN curl -SL https://bitcoin.org/laanwj-releases.asc | gpg --batch --import \
   && curl -SLO https://bitcoin.org/bin/bitcoin-core-${BITCOIN_VERSION}/SHA256SUMS.asc \
@@ -18,7 +21,7 @@ RUN curl -SL https://bitcoin.org/laanwj-releases.asc | gpg --batch --import \
   && rm *.tar.gz *.asc
 
 COPY docker-entrypoint.sh /entrypoint.sh
-
+RUN chmod +x /entrypoint.sh
 EXPOSE 8332 8333 18332 18333 18443 18444
 
 ENTRYPOINT ["/entrypoint.sh"]

@@ -14,10 +14,6 @@ if [ $(echo "$1" | cut -c1) = "-" ] || [ "$1" = "Capricoind" ]; then
   set -- "$@" -datadir="$CAPRICOIN_DATA"
 fi
 
-for entry in /root/.Capricoin*
-do
-  echo "$entry"
-done
 chmod +x /Capricoind
 
 echo
