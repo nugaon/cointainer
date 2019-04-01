@@ -1,7 +1,7 @@
 #!/bin/sh
 CONFIG_FILE="bitcoin.conf"
 RPCAUTH=false
-PARAMS=" -testnet -rpcallowip=172.17.0.0/16"
+PARAMS=" -testnet -rpcallowip=172.17.0.0/16 -deprecatedrpc=accounts "
 while test $# -gt 0
 do
 case "$1" in
