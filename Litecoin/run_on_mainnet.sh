@@ -65,6 +65,6 @@ else
 fi
 
 echo "Starting litecoin node..."
-docker run -v ~/.litecoin:/root/.litecoin -d -p 9332:9332 --rm --name litecoin-core nemesgyadam/litecoin-core ${PARAMS}
+docker run -v ~/.litecoin:/root/.litecoin -d --network="host" --rm --name litecoin-core nemesgyadam/litecoin-core ${PARAMS}
 
 

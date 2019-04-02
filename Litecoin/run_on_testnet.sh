@@ -61,4 +61,4 @@ else
 
 fi
 echo "Starting litecoin testnet node..."
-docker run -v ~/.litecoin:/root/.litecoin -d -p 127.0.0.1:19332:19332 --rm --name litecoin-core-testnet nemesgyadam/litecoin-core${PARAMS}
+docker run -v ~/.litecoin:/root/.litecoin -d --network="host" --rm --name litecoin-core-testnet nemesgyadam/litecoin-core${PARAMS}
