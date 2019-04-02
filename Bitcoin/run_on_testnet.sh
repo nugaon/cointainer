@@ -1,7 +1,7 @@
 #!/bin/sh
 CONFIG_FILE="bitcoin.conf"
 RPCAUTH=false
-PARAMS=" -testnet -rpcallowip=172.17.0.0/16 -deprecatedrpc=accounts "
+PARAMS=" -testnet -deprecatedrpc=accounts -deprecatedrpc=signrawtransaction"
 while test $# -gt 0
 do
 case "$1" in
@@ -59,4 +59,4 @@ else
 
 fi
 echo "Starting bitcoin testnet node..."
-docker run -d -v ~/.bitcoin:/root/.bitcoin -p 127.0.0.1:18332:18332 --rm --name bitcoin-core-testnet nemesgyadam/bitcoin-core${PARAMS}
+docker run -d -v ~/.bitcoin:/root/.bitcoin --network="host" --rm --name bitcoin-core-testnet nemesgyadam/bitcoin-core${PARAMS}
