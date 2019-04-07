@@ -1,52 +1,22 @@
+# Description
+For Ethereum containers it doesn't necessary to write own Dockerfile, because it has official version.
+
+## Used ports
+- 8545 # listens on localhost, if you run full node it has websocket server other situations http RPC port.
+- 3003 # communication port for Ethereum client nodes
+- 3004 # new discovery port for Ethereum clients.
+
 # Usage
+All containers persistent storage will be under ~/.ethereum folder on your host.
 
-## Testnet:
+## Connect to Testnet:
+The most used/recommended testnet is Rinkeby on Ethereum. To run a full client on this testnet, run ./run_on_testnet.sh 
 
->./run_on_testnet.sh
+To get coins visit the following URL: https://www.rinkeby.io/#faucet 
 
-This command will build the bitcoin-core docker image-if not exists yet- then run the bitcoin-core on testnet.
+### Connect to the geth client
 
-### Parameters:
-
--v (default:0.17.1)
-
--build build the image even if it already exists
-
-### Bitcoind parameters
-Or you can pass parameter to bitcoind like:
-
->--rescan
-
->--rpcauth='cointaner:d941010ee4d66ccf4ad96d757fa4773d$17f5c4a49dd3097c03049223cd9f2d493271cfa2e1e44ac6e1f72d39fbf75abf'
-
-    (if no rpcauth is set the script will try to use user/password from bitcoin.conf)
-
-    (if no bitcoin.conf is found the script will create one with the below user/pass -testnet only)
-
-example:
-
-> ./run_on_testnet.sh -v 0.17.0 -build
-
-### Notes
-
-Test RPC port: 18332
-
-RPC Username: cointaner
-
-RPC Password: bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM=
-
-To withdraw some test coins to your account, you can use the following site:
-https://coinfaucet.eu/en/btc-testnet/
-
-
-### Example RPC usage
->curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://cointaner:bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM=@127.0.0.1:18332
-
-### Example CLI usage
-#### Outside docker:</h4>
-
->docker exec -it bitcoin-core-testnet bitcoin-cli -testnet getmininginfo
-
+> docker exec -ti ethereum-node-testnet geth attach --datadir=/root/.ethereum/rinkeby/
 
 #### Inside docker:</h4>
 
