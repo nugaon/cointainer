@@ -11,9 +11,9 @@ case "$1" in
     -build) echo "building..."
 		if [ -z "$VERSION" ]
 		then
-			docker build -t nemesgyadam/litecoin-core .
+			docker build -t cointainer/litecoin-core .
 		else
-			docker build -t nemesgyadam/litecoin-core --build-arg LITECOIN_VERSION=${VERSION} .
+			docker build -t cointainer/litecoin-core --build-arg LITECOIN_VERSION=${VERSION} .
 		fi
 	;;
 	*-rpcauth*)
@@ -36,14 +36,14 @@ done
 
 
 
-if [ -z $(docker images -q nemesgyadam/litecoin-core) ] 
+if [ -z $(docker images -q cointainer/litecoin-core) ] 
 then
 	echo "Can't find image, building..."
 	if [ -z "$VERSION" ]
 	then
-		docker build -t nemesgyadam/litecoin-core .
+		docker build -t cointainer/litecoin-core .
 	else
-		docker build -t nemesgyadam/litecoin-core --build-arg LITECOIN_VERSION=${VERSION} .
+		docker build -t cointainer/litecoin-core --build-arg LITECOIN_VERSION=${VERSION} .
 	fi
 fi
 
@@ -65,6 +65,6 @@ else
 fi
 
 echo "Starting litecoin node..."
-docker run -v ~/.litecoin:/root/.litecoin -d --network="host" --rm --name litecoin-core nemesgyadam/litecoin-core ${PARAMS}
+docker run -v ~/.litecoin:/root/.litecoin -d --network="host" --rm --name litecoin-core cointainer/litecoin-core ${PARAMS}
 
 
