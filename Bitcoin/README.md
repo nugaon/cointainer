@@ -14,23 +14,17 @@ You can read about the blockchain node requrements [here](https://bitcoin.org/en
 - 18444 #   Regtest P2P port
 
 
-## Mount Binding
-host
-│
-├── /home/[USER]  
-│   ├── .bitcoin # contains the files of the bitcoin core
-│   │   ├── testnet3 # contains the files of the bitcoin core testnet
-│   |   ├── .config
-│   │   ├── blocks # Contains blockchain data
 
-
-docker
+## Mount points
 │
 ├── /home/cointainer
 │   ├── .bitcoin # contains the files of the bitcoin core
 │   │   ├── testnet3 # contains the files of the bitcoin core testnet
-│   |   ├── .config
 │   │   ├── blocks # Contains blockchain data
+│   ├── config
+│   │   ├── bitcoin # cointains configuration file(s) for the bitcoin core.
+
+
 
 ## Usage on live bitcoin blockchain:
 

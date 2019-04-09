@@ -24,11 +24,12 @@ RUN curl -SL https://bitcoin.org/laanwj-releases.asc | gpg --batch --import \
 RUN groupadd -g 999 cointainer && \
     useradd -r -u 999 -g cointainer cointainer
 
-
-#USER cointainer
+RUN mkdir -p ${BITCOIN_DATA}
+RUN chown cointainer ${BITCOIN_DATA}
+USER cointainer
 
 EXPOSE 8332 8333 18332 18333 18443 18444
-#VOLUME ["/home/cointainer/.bitcoin"]
+
 
 ENTRYPOINT ["/entrypoint.sh"]
 
