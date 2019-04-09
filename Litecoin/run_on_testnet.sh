@@ -11,9 +11,9 @@ case "$1" in
 	-build) echo "building..."
 		if [ -z "$VERSION" ]
 		then
-			docker build -t nemesgyadam/litecoin-core .
+			docker build -t cointainer/litecoin-core .
 		else
-			docker build -t nemesgyadam/litecoin-core --build-arg LITECOIN_VERSION=${VERSION} .
+			docker build -t cointainer/litecoin-core --build-arg LITECOIN_VERSION=${VERSION} .
 		fi
 	;;
 	*-rpcauth*)
@@ -30,14 +30,14 @@ esac
 shift
 done
 
-if [ -z $(docker images -q nemesgyadam/litecoin-core) ] 
+if [ -z $(docker images -q cointainer/litecoin-core) ] 
 then
 	echo "Can't find image, building..."
 	if [ -z "$VERSION" ]
 	then
-		docker build -t nemesgyadam/litecoin-core .
+		docker build -t cointainer/litecoin-core .
 	else
-		docker build -t nemesgyadam/litecoin-core --build-arg LITECOIN_VERSION=${VERSION} .
+		docker build -t cointainer/litecoin-core --build-arg LITECOIN_VERSION=${VERSION} .
 	fi
 fi
 
@@ -47,12 +47,21 @@ if [ "$RPCAUTH" = false ]
 then
 	if [ -f "$CONFIG_FILE" ]
 	then
-		echo "Loading config file..."
+	read -p "The configuration already set in litecoin.conf. Do you want to replace it by the sample testnet configuration? (y or n): " yn
+	while true; do
+		case $yn in
+			[Yy]* ) 		
+			echo "rpcuser=cointainer\nrpcpassword=pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=\nrpcallowip=127.0.0.1\n" > ${CONFIG_FILE}; break;;
+			[Nn]* ) echo "Loading config file..."; break;;
+			* ) echo "Please answer y or n.";;
+		esac
+	done
 	else
 		echo "Config file not found,creating ..."
-		echo "rpcuser=cointaner"
-		echo "rpcpass=bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM="
-		echo "rpcuser=cointaner \nrpcpassword=bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM=" > ${CONFIG_FILE}
+		echo "rpcuser=cointainer"
+		echo "rpcpass=pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I="
+		echo "rpcuser=cointainer\nrpcpassword=pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=" > ${CONFIG_FILE}
+
 	fi
 	cp ${CONFIG_FILE} ~/.litecoin/${CONFIG_FILE}
 	
@@ -61,4 +70,4 @@ else
 
 fi
 echo "Starting litecoin testnet node..."
-docker run -v ~/.litecoin:/root/.litecoin -d --network="host" --rm --name litecoin-core-testnet nemesgyadam/litecoin-core${PARAMS}
+docker run -v ~/.litecoin:/root/.litecoin -d --network="host" --rm --name litecoin-core-testnet cointainer/litecoin-core${PARAMS}

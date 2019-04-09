@@ -1,3 +1,12 @@
+# Description
+Capricoin core is a fork from bitcoin core, therefore, you can use the documentatoin of bitcoin:
+
+
+The development documentation available on the [Ripple Developers](https://developers.ripple.com) website along with its [RPC API Documentation](https://developers.ripple.com/rippled-api.html).
+
+
+For more information visit [Capricoin github repository])(https://github.com/Capricoinofficial/Capricoin)
+
 # Usage
 
 Create a Capricoin.conf file based on the Capricoin_example.conf 
@@ -19,14 +28,15 @@ Or you can pass parameter to capricoind like:
 >--rescan
 
 
-example:
+### Example:
+
 
 > ./run_on_mainnet.sh -v 1.2.0.0 -build
 
 
 ## Example RPC usage
 
-> curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://cointaner:bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM=@127.0.0.1:22713
+> curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://foo:SUPERSECRETPASSWORD@127.0.0.1:22713
 
 
 
@@ -40,9 +50,5 @@ example:
 
 > Capricoind getinfo
 
-## Notes
-
-RPC port: 22713
-
-
-Note: Capricoin currenty don't have a working tesnet blocchain.
+    RPC port: 22713
+    Capricoin currenty don't have a working tesnet blocchain.

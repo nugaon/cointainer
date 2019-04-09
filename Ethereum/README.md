@@ -18,7 +18,7 @@ To get coins visit the following URL: https://www.rinkeby.io/#faucet
 
 > docker exec -ti ethereum-node-testnet geth attach --datadir=/root/.ethereum/rinkeby/
 
-#### Inside docker:</h4>
+#### Inside docker:
 
 >bitcoin-cli -testnet getmininginfo
 
@@ -59,21 +59,21 @@ Or you can pass parameter to bitcoind like:
 
 >--rescan
 
->--rpcauth='cointaner:d941010ee4d66ccf4ad96d757fa4773d$17f5c4a49dd3097c03049223cd9f2d493271cfa2e1e44ac6e1f72d39fbf75abf'
+>--rpcauth='cointainer:58c54af0545a21fd133e8edd7e0de40d$d4192975a4ebdbc4758b7d08e5b8e428dbf0434ef9c09b0d5da95e592e385a86'
 example:
 
 > ./run_on_mainnet.sh -v 0.17.0 -build --rescan
 
 ### Example RPC usage
->curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://cointaner:bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM=@127.0.0.1:8332
+>curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://cointainer:pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=@127.0.0.1:8332
 
 ### Example CLI usage
-#### Outside docker:</h4>
+#### Outside docker:
 
 >docker exec -it bitcoin-core-testnet bitcoin-cli getmininginfo
 
 
-#### Inside docker:</h4>
+#### Inside docker:
 
 >bitcoin-cli getmininginfo
 

@@ -10,9 +10,9 @@ case "$1" in
     -build) echo "building..."
 		if [ -z "$VERSION" ]
 		then
-			docker build -t nemesgyadam/capricoin-core .
+			docker build -t cointainer/capricoin-core .
 		else
-			docker build -t nemesgyadam/capricoin-core --build-arg CAPRICOIN_VERSION=${VERSION} .
+			docker build -t cointainer/capricoin-core --build-arg CAPRICOIN_VERSION=${VERSION} .
 		fi
 	;;
 		
@@ -25,14 +25,14 @@ esac
 shift
 done
 
-if [ -z $(docker images -q nemesgyadam/capricoin-core) ] 
+if [ -z $(docker images -q cointainer/capricoin-core) ] 
 then
 	echo "Can't find image, building..."
 	if [ -z "$VERSION" ]
 	then
-		docker build -t nemesgyadam/capricoin-core .
+		docker build -t cointainer/capricoin-core .
 	else
-		docker build -t nemesgyadam/capricoin-core --build-arg CAPRICOIN_VERSION=${VERSION} .
+		docker build -t cointainer/capricoin-core --build-arg CAPRICOIN_VERSION=${VERSION} .
 	fi
 fi
 
@@ -51,4 +51,4 @@ cp ${CONFIG_FILE} ~/.Capricoin/${CONFIG_FILE}
 echo "Starting capricoin node..."
 
 
-docker run -d -v ~/.Capricoin:/root/.Capricoin --rm --network host --name capricoin-node nemesgyadam/capricoin-core${PARAMS}
+docker run -d -v ~/.Capricoin:/root/.Capricoin --rm --network host --name capricoin-node cointainer/capricoin-core${PARAMS}
