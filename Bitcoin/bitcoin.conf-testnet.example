@@ -76,7 +76,7 @@ testnet=1
 # If not, you must set rpcuser and rpcpassword to secure the JSON-RPC api. The first
 # method(DEPRECATED) is to set this pair for the server and client:
 #rpcuser=cointainer
-#rpcpass=pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=
+#rpcpassword=pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=
 #
 # The second method `rpcauth` can be added to server startup argument. It is set at intialization time
 # using the output from the script in share/rpcuser/rpcuser.py after providing a username:
@@ -92,7 +92,8 @@ testnet=1
 #rpcpassword=DONT_USE_THIS_YOU_WILL_GET_ROBBED_8ak1gI25KFTvjovL3gAM967mies3E=
 #
 # You can even add multiple entries of these to the server conf file, and client can use any of them:
-# rpcauth=bob:b2dd077cb54591a2f3139e69a897ac$4e71f08d48b4347cf8eff3815c0e25ae2e9a4340474079f55705f40574f4ec99
+rpcauth=cointainer:58c54af0545a21fd133e8edd7e0de40d$d4192975a4ebdbc4758b7d08e5b8e428dbf0434ef9c09b0d5da95e592e385a86
+
 
 # How many seconds bitcoin will wait for a complete RPC HTTP request.
 # after the HTTP connection is established. 
