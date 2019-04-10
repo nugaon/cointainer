@@ -1,73 +1,22 @@
 #!/bin/sh
+NET="testnet" 
 CONFIG_FILE="litecoin.conf"
-RPCAUTH=false
-PARAMS=" -testnet -rpcallowip=172.17.0.0/16"
-while test $# -gt 0
-do
-case "$1" in
-	-v) VERSION="$2"
-		echo "Setting version to "${VERSION}
-	;;
-	-build) echo "building..."
-		if [ -z "$VERSION" ]
-		then
-			docker build -t cointainer/litecoin-core .
-		else
-			docker build -t cointainer/litecoin-core --build-arg LITECOIN_VERSION=${VERSION} .
-		fi
-	;;
-	*-rpcauth*)
-		RPCAUTH=true
-		PARAM=$( echo $1 | cut -c 2-)
-		PARAMS="$PARAMS $PARAM"
-	;;
-	--*)
-		PARAM=$( echo $1 | cut -c 2-)
-		
-		PARAMS="$PARAMS $PARAM"
-	;;
-esac
-shift
-done
-
-if [ -z $(docker images -q cointainer/litecoin-core) ] 
-then
-	echo "Can't find image, building..."
-	if [ -z "$VERSION" ]
-	then
-		docker build -t cointainer/litecoin-core .
-	else
-		docker build -t cointainer/litecoin-core --build-arg LITECOIN_VERSION=${VERSION} .
-	fi
-fi
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+PARAMS=" -testnet -conf=/home/cointainer/config/litecoin/${NET}_${CONFIG_FILE}"
 
 
-sudo chown ${USER} ~/.litecoin
-if [ "$RPCAUTH" = false ]
-then
-	if [ -f "$CONFIG_FILE" ]
-	then
-	read -p "The configuration already set in litecoin.conf. Do you want to replace it by the sample testnet configuration? (y or n): " yn
+if [ ! -f ${SCRIPTPATH}/config/${NET}_${CONFIG_FILE} ] ; then 
+	echo "Copying sample config file into ./config/{$NET}_${CONFIG_FILE}, because it didn't exist";
+	cp ${SCRIPTPATH}/${CONFIG_FILE}-${NET}.example ${SCRIPTPATH}/config/${NET}_${CONFIG_FILE}; 
+else
+	read -p "The configuration already set in ${NET}_litecoin.conf. Do you want to replace it by the sample ${NET} configuration? (y or n): " yn
 	while true; do
 		case $yn in
-			[Yy]* ) 		
-			echo "rpcuser=cointainer\nrpcpassword=pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=\nrpcallowip=127.0.0.1\n" > ${CONFIG_FILE}; break;;
+			[Yy]* ) cp ${SCRIPTPATH}/${CONFIG_FILE}-${NET}.example ${SCRIPTPATH}/config/${NET}_${CONFIG_FILE}; echo "Copying sample config file..."; break;; 
 			[Nn]* ) echo "Loading config file..."; break;;
 			* ) echo "Please answer y or n.";;
 		esac
 	done
-	else
-		echo "Config file not found,creating ..."
-		echo "rpcuser=cointainer"
-		echo "rpcpass=pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I="
-		echo "rpcuser=cointainer\nrpcpassword=pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=" > ${CONFIG_FILE}
-
-	fi
-	cp ${CONFIG_FILE} ~/.litecoin/${CONFIG_FILE}
-	
-else
-	echo "Using RPCAuth..."
-
 fi
-echo "Starting litecoin testnet node..."
-docker run -v ~/.litecoin:/root/.litecoin -d --network="host" --rm --name litecoin-core-testnet cointainer/litecoin-core${PARAMS}
+echo "Run litecoin node on ${NET}" 
+docker run -d -v litecoin:/home/cointainer/.litecoin/ -v ${SCRIPTPATH}/config:/home/cointainer/config/litecoin --network host --rm --name litecoin-core-${NET} cointainer/litecoin-core${PARAMS} $@

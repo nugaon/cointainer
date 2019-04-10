@@ -9,7 +9,6 @@ ARG BITCOIN_VERSION=0.17.1
 ENV BITCOIN_DATA=/home/cointainer/.bitcoin
 ENV PATH=/opt/bitcoin-${BITCOIN_VERSION}/bin:$PATH
 
-
 COPY docker-entrypoint.sh /entrypoint.sh
 RUN  chmod +x /entrypoint.sh
 

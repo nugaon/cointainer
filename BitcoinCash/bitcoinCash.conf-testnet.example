@@ -4,16 +4,10 @@
 
 ##Cointainer related settings:
 
-deprecatedrpc=accounts
-deprecatedrpc=signrawtransaction
 rpcallowip=172.17.0.0/16
 rpcauth=cointainer:58c54af0545a21fd133e8edd7e0de40d$d4192975a4ebdbc4758b7d08e5b8e428dbf0434ef9c09b0d5da95e592e385a86
 
 # Network-related settings:
-
-# Note that if you use testnet or regtest, particularly with the options
-# addnode, connect, port, bind, rpcport, rpcbind or wallet, you will also
-# want to read "[Sections]" further down.
 
 # Run on the test network instead of the real bitcoin network.
 testnet=1
@@ -160,19 +154,3 @@ testnet=1
 
 # Minimize to the system tray
 #minimizetotray=1
-
-# [Sections]
-# Most options apply to mainnet, testnet and regtest.
-# If you want to confine an option to just one network, you should add it in the
-# relevant section below.
-# EXCEPTIONS: The options addnode, connect, port, bind, rpcport, rpcbind and wallet
-# only apply to mainnet unless they appear in the appropriate section below.
-
-# Options only for mainnet
-[main]
-
-# Options only for testnet
-[test]
-
-# Options only for regtest
-[regtest]
