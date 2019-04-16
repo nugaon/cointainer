@@ -19,4 +19,4 @@ else
 	done
 fi
 echo "Run Bitcoin node on ${NET}" 
-docker run -d -v bitcoincash:/home/cointainer/.bitcoin/ -v ${SCRIPTPATH}/config:/home/cointainer/config/bitcoincash -p 127.0.0.1:8442:8332 --rm --name bitcoincash-core-${NET} cointainer/bitcoincash-core${PARAMS} $@
+docker run -d -v bitcoincash:/home/cointainer/.bitcoin/ -v ${SCRIPTPATH}/config:/home/cointainer/config/bitcoincash -p 127.0.0.1:8442:8332  --name bitcoincash-core-${NET} cointainer/bitcoincash-core${PARAMS} $@

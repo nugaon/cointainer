@@ -19,4 +19,4 @@ else
 	done
 fi
 echo "Run Capricoin node on ${NET}" 
-docker run -d -v capricoin:/home/cointainer/.capricoin/ -v ${SCRIPTPATH}/config:/home/cointainer/config/capricoin --network host --rm --name capricoin-core-${NET} cointainer/capricoin-core${PARAMS} $@
+docker run -d -v capricoin:/home/cointainer/.capricoin/ -v ${SCRIPTPATH}/config:/home/cointainer/config/capricoin --network host --name capricoin-core-${NET} cointainer/capricoin-core${PARAMS} $@

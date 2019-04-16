@@ -3,7 +3,7 @@
 echo "This docker image is the official version of the geth"
 echo "Run Ethereum geth client on mainnet with opened websocket api (8545)..."
 
-docker run -d --name ethereum-node-mainnet --rm -v ~/.ethereum:/root/.ethereum \
+docker run -d --name ethereum-node-mainnet -v ~/.ethereum:/root/.ethereum \
            -p 127.0.0.1:8545:8545 -p 0.0.0.0:30303:30303 -p 30304:30304 \
            ethereum/client-go:stable \
            --ws --wsapi personal,eth,shh,web3,net \
