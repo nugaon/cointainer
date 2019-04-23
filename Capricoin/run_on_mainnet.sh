@@ -1,54 +1,22 @@
 #!/bin/sh
+NET="mainnet" 
 CONFIG_FILE="Capricoin.conf"
-
-while test $# -gt 0
-do
-case "$1" in
-    -v) VERSION="$2"
-		echo "Setting version to "${VERSION}
-    ;;
-    -build) echo "building..."
-		if [ -z "$VERSION" ]
-		then
-			docker build -t nemesgyadam/capricoin-core .
-		else
-			docker build -t nemesgyadam/capricoin-core --build-arg CAPRICOIN_VERSION=${VERSION} .
-		fi
-	;;
-		
-	--*)
-		PARAM=$( echo $1 | cut -c 2-)
-		PARAMS="$PARAMS $PARAM"
-	;;
-     
-esac
-shift
-done
-
-if [ -z $(docker images -q nemesgyadam/capricoin-core) ] 
-then
-	echo "Can't find image, building..."
-	if [ -z "$VERSION" ]
-	then
-		docker build -t nemesgyadam/capricoin-core .
-	else
-		docker build -t nemesgyadam/capricoin-core --build-arg CAPRICOIN_VERSION=${VERSION} .
-	fi
-fi
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+PARAMS=" -conf=/home/cointainer/config/capricoin/${NET}_${CONFIG_FILE}"
 
 
-sudo chown ${USER} ~/.Capricoin
-if [ -f "$CONFIG_FILE" ]
-then
-	echo "Loading config file..."
+if [ ! -f ${SCRIPTPATH}/config/${NET}_${CONFIG_FILE} ] ; then 
+	echo "Copying sample config file into ./config/{$NET}_${CONFIG_FILE}, because it didn't exist";
+	cp ${SCRIPTPATH}/${CONFIG_FILE}-${NET}.example ${SCRIPTPATH}/config/${NET}_${CONFIG_FILE}; 
 else
-	echo "[ERROR] Config file not found. Please create (based on Capricoin.conf.example) and place it next to the Dockerfile"
-	exit 0
+	read -p "The configuration already set in ${NET}_Capricoin.conf. Do you want to replace it by the sample ${NET} configuration? (y or n): " yn
+	while true; do
+		case $yn in
+			[Yy]* ) cp ${SCRIPTPATH}/${CONFIG_FILE}-${NET}.example ${SCRIPTPATH}/config/${NET}_${CONFIG_FILE}; echo "Copying sample config file..."; break;; 
+			[Nn]* ) echo "Loading config file..."; break;;
+			* )	echo "Please answer y or n.";;
+		esac
+	done
 fi
-cp ${CONFIG_FILE} ~/.Capricoin/${CONFIG_FILE}
-	
-
-echo "Starting capricoin node..."
-
-
-docker run -d -v ~/.Capricoin:/root/.Capricoin --rm --network host --name capricoin-node nemesgyadam/capricoin-core${PARAMS}
+echo "Run Capricoin node on ${NET}" 
+docker run -d -v capricoin:/home/cointainer/.capricoin/ -v ${SCRIPTPATH}/config:/home/cointainer/config/capricoin --network host --name capricoin-core-${NET} cointainer/capricoin-core${PARAMS} $@

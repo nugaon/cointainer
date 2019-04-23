@@ -1,118 +1,85 @@
-# Usage
+# Description
+The development documentation available on the [Bitcoin Developer Documentation](https://bitcoin.org/en/developer-documentation) website along with its [RPC API Documentation](https://bitcoincore.org/en/doc/).
 
-## Testnet:
+## Requirements
+You can read about the blockchain node requrements [here](https://bitcoin.org/en/bitcoin-core/features/requirements)
 
->./run_on_testnet.sh
+## Exposed Ports
+- 8332  #   Mainnet JSON-RPC/REST port  #forwarded to host in run_on_mainnet.sh
+- 8333  #   Mainnet P2P port
+- 18332 #   Testnet JSON-RPC/REST port  #forwarded to host in run_on_testnet.sh
+- 18333 #   Testnet P2P port
+- 18443 #   Regtest JSON-RPC/REST port
+- 18444 #   Regtest P2P port
 
-This command will build the bitcoin-core docker image-if not exists yet- then run the bitcoin-core on testnet.
+## Mount points
+│
+├── /home/cointainer
+│   ├── .bitcoin # contains the files of the bitcoin core
+│   │   ├── testnet3 # contains the files of the bitcoin core testnet
+│   │   ├── blocks # Contains blockchain data
+│   ├── config
+│   │   ├── bitcoin # cointains configuration file(s) for the bitcoin core.
 
-### Parameters:
+## Usage on live bitcoin blockchain:
 
--v (default:0.17.1)
+### Method 1
+Set RPC user and password in config/mainnet_bitcoin.conf 
 
--build build the image even if it already exists
+>./run_on_mainnet.sh
 
-### Bitcoind parameters
-Or you can pass parameter to bitcoind like:
-
->--rescan
-
->--rpcauth='cointaner:d941010ee4d66ccf4ad96d757fa4773d$17f5c4a49dd3097c03049223cd9f2d493271cfa2e1e44ac6e1f72d39fbf75abf'
-
-    (if no rpcauth is set the script will try to use user/password from bitcoin.conf)
-
-    (if no bitcoin.conf is found the script will create one with the below user/pass -testnet only)
-
-example:
-
-> ./run_on_testnet.sh -v 0.17.0 -build
-
-### Notes
-
-Test RPC port: 18332
-
-RPC Username: cointaner
-
-RPC Password: bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM=
-
-To withdraw some test coins to your account, you can use the following site:
-https://coinfaucet.eu/en/btc-testnet/
-
-
-### Example RPC usage
->curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://cointaner:bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM=@127.0.0.1:18332
-
-### Example CLI usage
-#### Outside docker:</h4>
-
->docker exec -it bitcoin-core-testnet bitcoin-cli -testnet getmininginfo
-
-
-#### Inside docker:</h4>
-
->bitcoin-cli -testnet getmininginfo
-
-
-Note: 
-
-    CLI uses cookie based authenticaion, so doesn't require username/password, but it only works localy.
-
-## Live bitcoin blockchain:
-
-<Method 1>
+### Method 2
 
 Generate RPCAuth by:
 >curl -sSL https://raw.githubusercontent.com/bitcoin/bitcoin/master/share/rpcauth/rpcauth.py python - \<username>
 
+>./run_on_mainnet.sh -rpcauth='cointainer:58c54af0545a21fd133e8edd7e0de40d$d4192975a4ebdbc4758b7d08e5b8e428dbf0434ef9c09b0d5da95e592e385a86'
 
-
->./run_on_mainnet.sh --rpcauth='foo:7d9ba5ae63c3d4dc30583ff4fe65a67e$9e3634e81c11659e3de036d0bf88f89cd169c1039e6e09607562d54765c649cc'
-
-
-<Method 2>
-Create a bitcoin.conf (like bitcoin.conf.example)
-
->./run_on_mainnet.sh
-
-
-
-This command will build the bitcoin-core docker image -if not exists yet- then run the bitcoin-core.
-
-### Parameters:
-
--v (default:0.17.1)
-
--build build the image even if it already exists
-
-### Bitcoind parameters
-Or you can pass parameter to bitcoind like:
-
->--rescan
-
->--rpcauth='cointaner:d941010ee4d66ccf4ad96d757fa4773d$17f5c4a49dd3097c03049223cd9f2d493271cfa2e1e44ac6e1f72d39fbf75abf'
-example:
-
-> ./run_on_mainnet.sh -v 0.17.0 -build --rescan
+    All command-line options (except for -conf) may be specified in a configuration file, and all configuration file options may also be specified on the command line. Command-line options override values set in the configuration file.
 
 ### Example RPC usage
->curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://cointaner:bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM=@127.0.0.1:8332
+>curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://cointainer:pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=@127.0.0.1:8332
 
 ### Example CLI usage
-#### Outside docker:</h4>
+#### Outside docker:
 
->docker exec -it bitcoin-core-testnet bitcoin-cli getmininginfo
+>docker exec -it bitcoin-core-mainnet bitcoin-cli getmininginfo
 
-
-#### Inside docker:</h4>
+#### Inside docker:
 
 >bitcoin-cli getmininginfo
 
+    CLI uses cookie based authenticaion, so doesn't require username/password, but it only works localy.
+
+## Testnet:
+
+>./run_on_testnet.sh -rpcauth='cointainer:58c54af0545a21fd133e8edd7e0de40d$d4192975a4ebdbc4758b7d08e5b8e428dbf0434ef9c09b0d5da95e592e385a86'
+    
+    (if no rpcauth is set the script will use the settings from testnet_bitcoin.conf)
+
+## Get block chain info
+To check in which blockchain you are on and read more details run the following command:
+
+### Curl
+>curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getblockchaininfo","params":[]}' http://cointainer:pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=@127.0.0.1:8332
+
+(or in testnet:)
+
+>curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getblockchaininfo","params":[]}' http://cointainer:pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=@127.0.0.1:18332
+
+### CLI
+>docker exec -it bitcoin-core-mainnet bitcoin-cli getblockchaininfo
+
+(or in testnet:)
+
+>docker exec -it bitcoin-core-testnet bitcoin-cli -testnet getblockchaininfo
+
 ### Notes
-
-RPC port: 8332
-
-
-Note:  
+    Testnet RPC Username: cointainer
+    Testnet RPC Password: pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=
 
     Testnet and mainnet use the same docker image.
+
     chmod +x run_on_...net.sh if necessery
+
+To withdraw some test coins to your account, you can use [this site](https://coinfaucet.eu/en/btc-testnet/).

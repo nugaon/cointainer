@@ -8,7 +8,7 @@ if [ ! -f ${SCRIPTPATH}/config/rippled.cfg ] ; then
 	echo "Copy sample config into ./config/rippled.cfg, because it wasn't exist"
 	cp ${SCRIPTPATH}/rippled-${NET}-sample.cfg ${SCRIPTPATH}/config/rippled.cfg
 else
-	read -p "The configuration already set in the ./config/rippled.cfg. Do you want to replace it by the working sample testnet configuration? (y or n): " yn
+	read -p "The configuration already set in the ./config/rippled.cfg. Do you want to replace it by the working sample ${NET} configuration? (y or n): " yn
 	while true; do
 		case $yn in
 			[Yy]* ) cp ${SCRIPTPATH}/rippled-${NET}-sample.cfg ${SCRIPTPATH}/config/rippled.cfg; break;;
@@ -21,7 +21,7 @@ if [ ! -f ${SCRIPTPATH}/config/validators.txt ] ; then
         echo "Copy sample config into ./config/validator.txt, because it wasn't exist"
         cp ${SCRIPTPATH}/validators-${NET}-sample.txt ${SCRIPTPATH}/config/validators.txt
 else
-        read -p "The configuration already set in the ./config/rippled.cfg. Do you want to replace it by the working sample testnet configuration? (y or n): " yn
+        read -p "The configuration already set in the ./config/rippled.cfg. Do you want to replace it by the working sample ${NET} configuration? (y or n): " yn
         while true; do
                 case $yn in
                         [Yy]* ) cp ${SCRIPTPATH}/validators-${NET}-sample.txt ${SCRIPTPATH}/config/validators.txt; break;;

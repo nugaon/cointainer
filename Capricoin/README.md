@@ -1,48 +1,39 @@
+# Description
+Capricoin core is a fork from bitcoin core, therefore, you can use the documentation of bitcoin:
+
+The development documentation available on the [Bitcoin Developer Documentation](https://bitcoin.org/en/developer-documentation) website along with its [RPC API Documentation](https://bitcoincore.org/en/doc/).
+
+For more information visit [Capricoin github repository](https://github.com/Capricoinofficial/Capricoin)
+
+## Exposed Port
+- 22716  #   Mainnet JSON-RPC/REST port 
+
+## Mount points
+│
+├── /home/cointainer
+│   ├── .capricoin # contains the files of the capricoin core
+│   │   ├── testnet3 # contains the files of the capricoin core testnet
+│   │   ├── blocks # Contains blockchain data
+│   ├── config
+│   │   ├── capricoin # cointains configuration file(s) for the capricoin core.
 # Usage
 
-Create a Capricoin.conf file based on the Capricoin_example.conf 
+Set RPC user and password in config/mainnet_Capricoin.conf 
 
 >./run_on_mainnet.sh
-(chmod +x run_on_mainnet.sh if necessery)
-
-This command will build the capricoin-core docker image -if not exists yet- then run the capricoin-core.
-
-## Parameters:
-
--v (default:1.2.0.0)
-
--build build the image even if it already exists
-
-### Capricoind parameters
-Or you can pass parameter to capricoind like:
-
->--rescan
-
-
-example:
-
-> ./run_on_mainnet.sh -v 1.2.0.0 -build
-
 
 ## Example RPC usage
 
-> curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://cointaner:bD0tf5Gm6ohGPAurmkm2ODph0vYAMjbnSBbcBf0ClpM=@127.0.0.1:22713
-
-
+> curl --data-binary '{"jsonrpc":"1.0","id":"1","method":"getmininginfo","params":[]}' http://cointainer:pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=@127.0.0.1:22713
 
 ## Example CLI usage
 #### Outside docker:
 
-> docker exec capricoin-node Capricoind getbalance 
-
+> docker exec capricoin-core-mainnet Capricoind -conf=/home/cointainer/config/capricoin/mainnet_Capricoin.conf getbalance
 
 ## Inside docker:
 
 > Capricoind getinfo
 
-## Notes
-
-RPC port: 22713
-
-
-Note: Capricoin currenty don't have a working tesnet blocchain.
+    RPC port: 22713
+    Capricoin currenty don't have a working tesnet blockchain.
