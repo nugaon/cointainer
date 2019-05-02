@@ -30,4 +30,4 @@ else
                 esac
         done
 fi
-docker run -d -v ${SCRIPTPATH}/config:/home/cointainer/.config/ripple --name ripple-node-${NET} cointainer/ripple:latest $@
+docker run -d -p 127.0.0.1:5005:5005 -p 127.0.0.1:6006:6006 -v ${SCRIPTPATH}/config:/home/cointainer/.config/ripple --name ripple-node-${NET} cointainer/ripple:latest $@

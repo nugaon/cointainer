@@ -19,4 +19,4 @@ else
 	done
 fi
 echo "Run litecoin node on ${NET}" 
-docker run -d -v litecoin:/home/cointainer/.litecoin/ -v ${SCRIPTPATH}/config:/home/cointainer/config/litecoin --network host --rm --name litecoin-core-${NET} cointainer/litecoin-core${PARAMS} $@
+docker run -d -v litecoin:/home/cointainer/.litecoin/ -v ${SCRIPTPATH}/config:/home/cointainer/config/litecoin --network host --name litecoin-core-${NET} cointainer/litecoin-core${PARAMS} $@
