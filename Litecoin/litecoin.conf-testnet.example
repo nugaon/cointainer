@@ -9,7 +9,7 @@ rpcpassword=pCpXJwIE15M3N4I5C4pZFyNmdlNACMykrVQ3OilVf8I=
 # Network-related settings:
 
 # Run on the test network instead of the real litecoin network.
-#testnet=0
+testnet=1
 
 # Connect via a socks4 proxy
 #proxy=127.0.0.1:9050
