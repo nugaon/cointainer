@@ -26,7 +26,7 @@ You can read about the blockchain node requrements [here](https://bitcoin.org/en
 ## Usage on live bitcoin blockchain:
 
 ### Method 1
-Set RPC user and password in config/mainnet_bitcoinCash.conf 
+Set RPC user and password in config/bitcoin.conf 
 
 >./run_on_mainnet.sh
 
