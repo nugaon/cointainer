@@ -9,7 +9,7 @@ _|        _|    _|    _|    _|    _|_|      _|      _|    _|    _|    _|    _|_|
 # Description
 The Cointainer is a git repository for blockchain based local node Docker images. The images have the ability to connect both the Testnet and the Mainnet. With this you can easily build up local nodes for test or for production use cases.
 
-The project also made for the BicycleChain.
+The project also made for the [BicycleChain](https://github.com/nugaon/bicyclechain).
 
 ## Project structure
 ```
