@@ -12,6 +12,7 @@ You can read about the blockchain node requrements [here](https://developers.rip
 - 51235 # blockchain node communication port
 
 ## Mount points
+```
 │
 ├── /home/cointainer
 │   ├── ripple # contains the output of the rippled server
@@ -20,6 +21,7 @@ You can read about the blockchain node requrements [here](https://developers.rip
 │   │   ├── logfile # logging information from rippled
 │   ├── .config
 │   │   ├── ripple # cointains configuration files for rippled server.
+```
 
 * 
 The image automatically creates a volume from the /home/cointainer/ripple folder for synced blockchain data 
