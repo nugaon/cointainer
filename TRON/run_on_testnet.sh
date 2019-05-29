@@ -12,4 +12,4 @@ if [ ! -f $CONFIG_DIR/config.conf ] ; then
     echo "No configuration file exists at $CONFIG_DIR/config.conf. Set the default configuration..."
     cp tron-${NET}-sample.conf $CONFIG_DIR/config.conf
 fi
-docker run -v ${CONFIG_DIR}:/tron-data/ -d --name tron-${NODE}-${NET} -p 127.0.0.1:8090:8090 testtron fullnode
+docker run -v ${CONFIG_DIR}:/tron-data/ -d --name tron-${NODE}-${NET} -p 127.0.0.1:8090:8090 cointainer/tron fullnode
