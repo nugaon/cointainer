@@ -8,6 +8,8 @@ The sample configuration  files originally come from the [official TRON Git repo
 - minimum 2 cores CPU, suggested 4 cores for full node
 - 64 cores for Super Representative
 
+The Requirements varies in the official documentations, the [GitHub of the protocol Requirements sections](https://github.com/tronprotocol/documentation/blob/master/TRX/Tron-overview.md#31-recommended-hardware-specifications) specifies much more
+
 ## Dependencies
 - Oracle Java JDK 1.8
 The TRON server uses Oracle JDK 8. When build TRON JAR file the OpenJDK versions runs on error, so it cannot be used with the OpenJDK version.
@@ -24,11 +26,9 @@ No update, bugfixes or vulnerability fixes will be available after April 2019 on
 - 8091  # HTTP port of solidity
 
 # Usage
-
-## Full Node HTTP API examples
-
-Get last synced block
-> curl -X POST  http://127.0.0.1:8090/wallet/getnowblock
+The syncing is very slow and suggested to download the blocks from the [official backup site of TRON](https://backups.trongrid.io/) for the mainnet.
+After you downloaded the blocks, place it into the * ./config/mainnet * folder before you run the * run_on_mainnet.sh * script.
+There is opportunity to connect to the testnet (on Shasta), but instead of that test everything on the privatenet with the './run_on_privatenet.sh', because the sync is really slow.
 
 ## CLI commands
 
@@ -44,6 +44,9 @@ The most important methods:
 Generate account
 > curl -X POST -k http://127.0.0.1:8090/wallet/generateaddress
 
+Get last synced block
+> curl -X POST  http://127.0.0.1:8090/wallet/getnowblock
+
 ### Things that NOT to do
 
 This command overwrite your basic configuration file
@@ -55,4 +58,6 @@ For server logs call (with fullnode on mainnet)
 
 ## Mount points
 
+
 ## Testnet
+Sashta is the test network's name on the TRON network. Send coin to your address at the * 'Looking for Test (TRX) Coins?' * on the [page of TronGrid](https://www.trongrid.io/shasta/)
