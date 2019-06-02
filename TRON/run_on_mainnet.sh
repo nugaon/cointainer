@@ -1,6 +1,6 @@
 #!/bin/bash
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
-NET="testnet"
+NET="mainnet"
 DOCKER_NET="tron-${NET}"
 HTTPPORT=
 
