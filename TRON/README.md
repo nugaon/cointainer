@@ -1,5 +1,6 @@
 # Description
 TRON is an ambitious project dedicated to the establishment of a ** truly decentralized Internet ** and its infrastructure. The TRON Protocol, one of the largest blockchain based operating systems in the world, offers base public blockchain support of high throughput, high scalability, and high availability for all decentralized applications in the TRON ecosystem.
+For exchanges necessary to run a FullNode and a SolidityNode.
 
 ## Configuration
 The sample configuration  files originally come from the [official TRON Git repository](https://github.com/tronprotocol/tron-deployment), but it is altered.
@@ -27,8 +28,8 @@ No update, bugfixes or vulnerability fixes will be available after April 2019 on
 
 # Usage
 The syncing is very slow and suggested to download the blocks from the [official backup site of TRON](https://backups.trongrid.io/) for the mainnet.
-After you downloaded the blocks, place it into the * ./config/mainnet * folder before you run the * run_on_mainnet.sh * script.
-There is opportunity to connect to the testnet (on Shasta), but instead of that test everything on the privatenet with the './run_on_privatenet.sh', because the sync is really slow.
+After you downloaded the blocks, place it into the * ./config/mainnet/{nodetype} * folder before you run the * run_on_mainnet.sh * script.
+There is opportunity to connect to the testnet (on Shasta), but  they haven't opened the p2p port yet and the sync also very slow, instead of that test everything on the privatenet with the './run_on_privatenet.sh'.
 
 ## CLI commands
 
