@@ -1,0 +1,19 @@
+daemon=1
+server=1
+testnet=1
+rpcport=44555
+addnode=testnets.chain.so
+addnode=suchdig.com
+addnode=testdoge.lionservers.de
+addnode=senatorwhiskers.com
+
+deprecatedrpc=accounts
+deprecatedrpc=signrawtransaction
+rpcallowip=172.17.0.0/16
+
+rpcuser=cointainer
+rpcpassword=58c54af0545a21fd133e8edd7e0de40d$d4192975a4ebdbc4758b7d08e5b8e428dbf0434ef9c09b0d5da95e592e385a86
+
+# we can totally add more nodes.
+# if one node goes down. the testnet could be run with other nodes.
+# just think about it, as a kind of failsafe node.
