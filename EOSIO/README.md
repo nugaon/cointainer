@@ -14,10 +14,11 @@ If you want to upgrade the version before the new Cointainer release, change the
 Search for transactions block on [one its explorer](https://chain.so/DOGE)
 
 ## Exposed Port
-- 22555 # Dogecoin RPC port
-- 22556 # Dogecoin P2P port
-- 44555 # Dogecoin RPC TEST port
-- 44556 # Dogecoin P2P TEST port
+- 9876  # EOSIO P2P port
+- 8888  # EOSIO HTTP port
+
+## Download blocks without syncing
+The syncing on the blockchain network is really slow compared to download from a regular block producer which offers to [download its blocks](https://eosnode.tools/blocks) and the owned nodeos server can sync itself from that.
 
 ## Mount points
 ```
@@ -63,8 +64,8 @@ TO run a node on the testnet, type:
 Curl RPC example:
 curl --user cointainer:${PASSWORD} --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://127.0.0.1:22555
 
-## Faucet for free Testnet coins
+## Testnet
 
-To get free coins visit [this page, who offers free coins on the testnet](https://doge-faucet-testnet.ggcorp.fr/)
-
-To The MooOON!!
+The available testnet are listen on [the official page, which related to this](https://developers.eos.io/eosio-nodeos/docs/testnets).
+The cointainer uses the [Testnet of Telos](https://mon-test.telosfoundation.io/).
+For faucet visit [this](https://mon-test.telosfoundation.io/faucet) link.
