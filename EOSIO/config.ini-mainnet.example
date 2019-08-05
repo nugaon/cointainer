@@ -1,0 +1,183 @@
+plugin = eosio::chain_plugin
+plugin = eosio::http_plugin
+plugin = eosio::chain_api_plugin
+plugin = eosio::net_plugin
+plugin = eosio::history_api_plugin
+plugin = eosio::history_plugin
+
+access-control-allow-origin = '*'
+verbose-http-errors = true
+http-validate-host = false
+http-server-address = 0.0.0.0:8888
+p2p-listen-endpoint = 0.0.0.0:9876
+
+max-clients = 70
+pause-on-startup = false
+
+p2p-peer-address = bp.cryptolions.io:9876
+p2p-peer-address = p2p.mainnet.eospace.io:88
+p2p-peer-address = eu-west-nl.eosamsterdam.net:9876
+p2p-peer-address = p2p.mainnet.eosgermany.online:9876
+p2p-peer-address = 35.197.190.234:19878
+p2p-peer-address = mainnet.genereos.io:9876
+p2p-peer-address = mainnet.eospay.host:19876
+p2p-peer-address = 130.211.59.178:9876
+p2p-peer-address = 54.153.59.31:9999
+p2p-peer-address = 94.130.250.22:9806
+p2p-peer-address = peer.main.alohaeos.com:9876
+p2p-peer-address = peer.eosn.io:9876
+p2p-peer-address = prod.mainnet.eos.cybex.io:9888
+p2p-peer-address = p2p-1.eosnetwork.io:9876
+p2p-peer-address = p.jeda.one:3322
+p2p-peer-address = eosbattles.com:9877
+p2p-peer-address = 34.226.76.22:9876
+p2p-peer-address = mainnet.eosoasis.io:9876
+p2p-peer-address = node.eosflare.io:1883
+p2p-peer-address = mainnet.eoscalgary.io:5222
+p2p-peer-address = eos-p2p.worbli.io:33981
+p2p-peer-address = 18.188.38.175:9876
+p2p-peer-address = 18.221.255.38:9876
+p2p-peer-address = eos.staked.us:9870
+p2p-peer-address = peering.dutcheos.io:9876
+p2p-peer-address = 18.188.4.97:9876
+p2p-peer-address = 18.191.125.105:9876
+p2p-peer-address = boot.eostitan.com:9876
+p2p-peer-address = eosboot.chainrift.com:9876
+p2p-peer-address = dc1.eosemerge.io:9876
+p2p-peer-address = m.eosvibes.io:9876
+p2p-peer-address = node1.eosphere.io:9876
+p2p-peer-address = node2.eosphere.io:9876
+p2p-peer-address = 45.33.60.65:9820
+p2p-peer-address = peering.eosio.cr:1976
+p2p-peer-address = peering.eosio.cr:5418
+p2p-peer-address = 54.203.121.17:19866
+p2p-peer-address = eosnode.fi:9888
+p2p-peer-address = api.eosuk.io:12000
+p2p-peer-address = fullnode.eoslaomao.com:443
+p2p-peer-address = new.eoshenzhen.io:10034
+p2p-peer-address = peer.eosio.sg:9876
+p2p-peer-address = eos.nodepacific.com:9876
+p2p-peer-address = 18.234.6.119:80
+p2p-peer-address = eu1.eosdac.io:49876
+p2p-peer-address = br.eosrio.io:9876
+p2p-peer-address = p2p-public.hkeos.com:19875
+p2p-peer-address = node.eosmeso.io:9876
+p2p-peer-address = pub1.eostheworld.io:9876
+p2p-peer-address = 807534da.eosnodeone.io:19872
+p2p-peer-address = mainnet.eoseco.com:10010
+
+actor-blacklist = blacklistmee
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/07/ECAF_Arbitrator_Order_2018-06-19-AO-001.pdf
+actor-blacklist = ge2dmmrqgene
+actor-blacklist = gu2timbsguge
+actor-blacklist = ge4tsmzvgege
+actor-blacklist = gezdonzygage
+actor-blacklist = ha4tkobrgqge
+actor-blacklist = ha4tamjtguge
+actor-blacklist = gq4dkmzzhege
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/07/ECAF_Arbitrator_Order_2018-06-22-AO-002.pdf
+actor-blacklist = gu2teobyg4ge
+actor-blacklist = gq4demryhage
+actor-blacklist = q4dfv32fxfkx
+actor-blacklist = ktl2qk5h4bor
+actor-blacklist = haydqnbtgene
+actor-blacklist = g44dsojygyge
+actor-blacklist = guzdonzugmge
+actor-blacklist = ha4doojzgyge
+actor-blacklist = gu4damztgyge
+actor-blacklist = haytanjtgige
+actor-blacklist = exchangegdax
+actor-blacklist = cmod44jlp14k
+actor-blacklist = 2fxfvlvkil4e
+actor-blacklist = yxbdknr3hcxt
+actor-blacklist = yqjltendhyjp
+actor-blacklist = pm241porzybu
+actor-blacklist = xkc2gnxfiswe
+actor-blacklist = ic433gs42nky
+actor-blacklist = fueaji11lhzg
+actor-blacklist = w1ewnn4xufob
+actor-blacklist = ugunxsrux2a3
+actor-blacklist = gz3q24tq3r21
+actor-blacklist = u5rlltjtjoeo
+actor-blacklist = k5thoceysinj
+actor-blacklist = ebhck31fnxbi
+actor-blacklist = pvxbvdkces1x
+actor-blacklist = oucjrjjvkrom
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/07/ECAF-Temporary-Freeze-Order-2018-07-13-AO-003.pdf
+actor-blacklist = neverlandwal
+actor-blacklist = tseol5n52kmo
+actor-blacklist = potus1111111
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/07/ECAF-Order-of-Emergency-Protection-2018-07-19-AO-004.pdf
+actor-blacklist = craigspys211
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/08/ECAF-Order-of-Emergency-Protection-2018-08-07-AO-005.pdf
+actor-blacklist = eosfomoplay1
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/08/ECAF-Order-of-Emergency-Protection-2018-08-28-AO-006.pdf
+actor-blacklist = wangfuhuahua
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/09/ECAF-Order-of-Emergency-Protection-2018-09-07-AO-008.pdf
+#https://eoscorearbitration.io/wp-content/uploads/2018/09/ECAF-Order-of-Emergency-Protection-2018-09-24-AO-010.pdf
+#actor-blacklist = ha4timrzguge
+actor-blacklist = guytqmbuhege
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/09/ECAF-Order-of-Emergency-Protection-2018-09-09-AO-009.pdf
+actor-blacklist = huobldeposit
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/09/ECAF-Order-of-Emergency-Protection-2018-09-25-AO-011.pdf
+actor-blacklist = gm3dcnqgenes
+actor-blacklist = gm34qnqrepqt
+actor-blacklist = gt3ftnqrrpqp
+actor-blacklist = gtwvtqptrpqp
+actor-blacklist = gm31qndrspqr
+actor-blacklist = lxl2atucpyos
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/10/ECAF-Order-of-Emergency-Protection-2018-10-05-AO-012.pdf
+actor-blacklist = g4ytenbxgqge
+actor-blacklist = jinwen121212
+actor-blacklist = ha4tomztgage
+actor-blacklist = my1steosobag
+actor-blacklist = iloveyouplay
+actor-blacklist = eoschinaeos2
+actor-blacklist = eosholderkev
+actor-blacklist = dreams12true
+actor-blacklist = imarichman55
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/10/ECAF-Order-of-Emergency-Protection-2018-10-05-AO-013.pdf
+actor-blacklist = gizdcnjyg4ge
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/10/ECAF-Order-of-Emergency-Protection-2018-10-12-AO-014.pdf
+actor-blacklist = gyzdmmjsgige
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/10/ECAF-Order-of-Emergency-Protection-2018-10-13-AO-015.pdf
+actor-blacklist = guzdanrugene
+actor-blacklist = earthsop1sys
+
+#https://eoscorearbitration.io/wp-content/uploads/2018/10/ECAF-Order-of-Emergency-Protection-2018-10-31-AO-017.pdf
+actor-blacklist = refundwallet
+actor-blacklist = jhonnywalker
+actor-blacklist = alibabaioeos
+actor-blacklist = whitegroupes
+actor-blacklist = 24cryptoshop
+actor-blacklist = minedtradeos
+
+#Manual at 2019.02.22 (MainNet gropup)
+actor-blacklist = newdexmobapp
+actor-blacklist = ftsqfgjoscma
+actor-blacklist = hpbcc4k42nxy
+actor-blacklist = 3qyty1khhkhv
+actor-blacklist = xzr2fbvxwtgt
+actor-blacklist = myqdqdj4qbge
+actor-blacklist = shprzailrazt
+actor-blacklist = qkwrmqowelyu
+actor-blacklist = lhjuy3gdkpq4
+actor-blacklist = lmfsopxpr324
+actor-blacklist = lcxunh51a1gt
+actor-blacklist = geydddsfkk5e
+actor-blacklist = pnsdiia1pcuy
+actor-blacklist = kwmvzswquqpb
+actor-blacklist = guagddoefdqu

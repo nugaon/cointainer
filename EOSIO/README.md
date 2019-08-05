@@ -1,17 +1,12 @@
 # Description
-Dogecoin is a decentralized, peer-to-peer digital currency that enables you to easily send money online. Think of it as "the internet currency."
-What's with Dogecoin and the dog?
-"Doge" is our fun, friendly mascot! The Shiba Inu is a Japanese breed of dog that was popularized as an online meme and represents Dogecoin.
-Fore more information visit the [official page](https://dogecoin.com/)
+[EOSIO mainnet config template](https://github.com/CryptoLions/EOS-MainNet/blob/master/config.ini)
+EOSIO is a blockchain platform designed for the real world. Built for both public and private use cases, EOSIO is customizable to suit a wide range of business needs across industries with rich role-based security permissions, industry-leading speeds and secure application processing. Building on EOSIO follows familiar development patterns and programming languages used by existing non-blockchain applications so developers can create a seamless user experience using development tools they already know and love.
+Fore more information visit the [official page](https://eos.io)
 
-Dogecoin is a fork from bitcoin core, therefore, you can use the documentation of bitcoin:
-
-The development documentation available on the [Bitcoin Developer Documentation](https://bitcoin.org/en/developer-documentation) website along with its [RPC API Documentation](https://bitcoincore.org/en/doc/).
-
-The image runs by default the [dogecoind daemon](https://github.com/dogecoin/dogecoin/releases/download/v1.14.0/dogecoin-1.14.0-x86_64-linux-gnu.tar.gz). The latest built version is 1.14 x86_64 version.
+The image runs by default the [nodeos and keosd daemons](https://github.com/EOSIO/eos/releases/download/v1.7.0/eosio_1.7.0-1-ubuntu-18.04_amd64.deb). The uses the version v1.7.0.
 If you want to upgrade the version before the new Cointainer release, change the version number in the Dockerfile and build the image yourself.
 
-Search for transactions block on [one its explorer](https://chain.so/DOGE)
+Search for transactions and blocks on [one its explorer](https://bloks.io/)
 
 ## Exposed Port
 - 9876  # EOSIO P2P port
@@ -61,8 +56,20 @@ Get account addresses:
 TO run a node on the testnet, type:
 >./run_on_testnet.sh
 
-Curl RPC example:
-curl --user cointainer:${PASSWORD} --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://127.0.0.1:22555
+Curl HTTP example:
+
+Get info about the blockchain exam
+> curl --request POST \
+  --url http://localhost:8888/v1/chain/get_info \
+  --header 'accept: application/json' \
+  --header 'content-type: application/json'
+
+Get block
+> curl --request POST \
+  --url http://localhost:8888/v1/chain/get_block \
+  --header 'accept: application/json' \
+  --header 'content-type: application/json' \
+  --data '{"block_num_or_id":"1000"}'
 
 ## Testnet
 
