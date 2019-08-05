@@ -1,5 +1,4 @@
 # Description
-[EOSIO mainnet config template](https://github.com/CryptoLions/EOS-MainNet/blob/master/config.ini)
 EOSIO is a blockchain platform designed for the real world. Built for both public and private use cases, EOSIO is customizable to suit a wide range of business needs across industries with rich role-based security permissions, industry-leading speeds and secure application processing. Building on EOSIO follows familiar development patterns and programming languages used by existing non-blockchain applications so developers can create a seamless user experience using development tools they already know and love.
 Fore more information visit the [official page](https://eos.io)
 
@@ -76,3 +75,8 @@ Get block
 The available testnet are listen on [the official page, which related to this](https://developers.eos.io/eosio-nodeos/docs/testnets).
 The cointainer uses the [Testnet of Telos](https://mon-test.telosfoundation.io/).
 For faucet visit [this](https://mon-test.telosfoundation.io/faucet) link.
+
+
+# References
+[EOSIO mainnet config template](https://github.com/CryptoLions/EOS-MainNet/blob/master/config.ini)
+[EOSIO mainnet genesis json](https://github.com/CryptoLions/EOS-MainNet/blob/master/genesis.json)
