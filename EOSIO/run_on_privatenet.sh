@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NET="mainnet"
+NET="privatenet"
 CONFIG_FILE="config.ini"
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 CONTAINER_USER_ID=1999
@@ -37,4 +37,4 @@ echo "Run EOSIO node on ${NET}"
 echo "chown ownership of the config folder to ${CONTAINER_USER_ID} with command: sudo chown ${CONTAINER_USER_ID} -R ${NODE_VOLUME}"
 sudo chown ${CONTAINER_USER_ID} -R $NODE_VOLUME
 
-docker run -d -v $NODE_VOLUME:/home/cointainer/.eosio/ -p 127.0.0.1:8888:8888 -p 0.0.0.0:9876:9876 --name eosio-${NET} cointainer/eosio --genesis-json /home/cointainer/.eosio/genesis.json $@
+docker run -d -v $NODE_VOLUME:/home/cointainer/.eosio/ -p 127.0.0.1:8888:8888 --name eosio-${NET} cointainer/eosio $@
