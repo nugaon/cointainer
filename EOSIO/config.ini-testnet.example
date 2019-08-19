@@ -8,6 +8,7 @@ access-control-allow-origin = '*'
 verbose-http-errors = true
 http-validate-host = false
 http-server-address = 0.0.0.0:8888
+contracts-console = true
 
 p2p-peer-address = seed1.telos.eosindex.io:9876
 p2p-peer-address = p2p.eos.miami:13975

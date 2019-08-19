@@ -10,6 +10,7 @@ verbose-http-errors = true
 http-validate-host = false
 http-server-address = 0.0.0.0:8888
 p2p-listen-endpoint = 0.0.0.0:9876
+contracts-console = true
 
 max-clients = 70
 pause-on-startup = false

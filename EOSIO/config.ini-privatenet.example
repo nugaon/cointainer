@@ -2,10 +2,17 @@ plugin = eosio::chain_plugin
 plugin = eosio::http_plugin
 plugin = eosio::chain_api_plugin
 plugin = eosio::history_api_plugin
-plugin = eosio::history_plugin
+plugin = eosio::state_history_plugin
 plugin = eosio::producer_plugin
+
+producer-name = eosio
+enable-stale-production = true
+trace-history = true
+chain-state-history = true
+state-history-endpoint = 0.0.0.0:8080
 
 access-control-allow-origin = '*'
 verbose-http-errors = true
 http-validate-host = false
 http-server-address = 0.0.0.0:8888
+contracts-console = true
