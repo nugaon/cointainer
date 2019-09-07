@@ -51,6 +51,11 @@ To run a node on the mainnet, type:
 
 Suggested to use privatenet instead of testnet for try out the functionalities.
 
+To track and monitor the blockchain on EOSIO network database fillers must be used.
+With running the 'run_db_fillers.sh' the Container starts a PostgreSQL db filler with the db server on request.
+For the first usage give command with the schema generation flag
+>./run_db_fillers.sh --fpg-create
+
 ## CLI usage
 
 Through the * cleosd * CLI is possible to query and modify the blockchain data.

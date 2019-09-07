@@ -27,7 +27,7 @@ while true; do
     case $START_POSTGRE in
         [Yy]* | "")
             echo "Start PostgreSQL server with root user 'postgres' and password '${DB_PASS}'"
-            docker run --network $DOCKER_NETWORK --name eosio-postgres -e POSTGRES_PASSWORD=$DB_PASS -d postgres
+            docker run --network $DOCKER_NETWORK --name eosio-postgres -e POSTGRES_PASSWORD=$DB_PASS -d -p 127.0.0.1:5432:5432 postgres
             echo "Wait for a while until the service initializes"
             sleep 8
             break

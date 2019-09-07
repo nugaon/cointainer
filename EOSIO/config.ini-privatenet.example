@@ -8,7 +8,6 @@ plugin = eosio::producer_plugin
 producer-name = eosio
 enable-stale-production = true
 trace-history = true
-chain-state-history = true
 state-history-endpoint = 0.0.0.0:8080
 
 access-control-allow-origin = '*'
