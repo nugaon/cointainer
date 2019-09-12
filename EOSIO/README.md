@@ -69,11 +69,8 @@ Get wallet list:
 Get info about the blockchain
 > docker exec eosio-privatenet cleos get info
 
-Create new address in the wallet:
-> docker exec dogecoin-mainnet dogecoin-cli getaccountaddress main-deposit-account
-
-Get account addresses:
->  docker exec dogecoin-mainnet dogecoin-cli getaddressesbyaccount main-deposit-account
+Get commands of the cleos
+> docker exec eosio-privatenet cleos
 
 TO run a node on the testnet, type:
 >./run_on_testnet.sh
